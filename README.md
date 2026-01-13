@@ -46,6 +46,12 @@ spring:
     url: jdbc:mysql://localhost:3306/gestaoveiculo
     username: seu_usuario
     password: sua_senha
+
+api:
+  security:
+    token:
+      secret: sua_secret
+      expiration: sua_expiration
 ```
 3. Execute a aplicação
 
