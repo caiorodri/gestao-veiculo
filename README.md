@@ -2,7 +2,7 @@
 
 API desenvolvida em **Java com Spring Boot** para gerenciamento de frota pessoal e análise de evolução patrimonial. O sistema não apenas cadastra veículos, mas monitora automaticamente a depreciação de mercado (via Tabela FIPE) comparando com indicadores econômicos reais (IPCA e CDI) para gerar insights financeiros.
 
-## 🚀 Funcionalidades Principais
+## Funcionalidades Principais
 
 * **Gestão de Veiculos:** CRUD completo de veículos vinculados a usuários.
 * **Integração FIPE:** Consulta em tempo real e sincronização de preços de mercado (API Parallelum).
@@ -11,7 +11,7 @@ API desenvolvida em **Java com Spring Boot** para gerenciamento de frota pessoal
 * **Agendamento Automático:** Rotinas (Schedulers) que rodam todo dia 1º do mês para atualizar a base de dados.
 * **Segurança:** Autenticação e Autorização via **Spring Security** e **JWT**.
 
-## 🛠️ Stack Tecnológica
+## Stack Tecnológica
 
 * **Linguagem:** Java 17+
 * **Framework:** Spring Boot 3 (Web, Data JPA, Security, Validation)
@@ -20,7 +20,7 @@ API desenvolvida em **Java com Spring Boot** para gerenciamento de frota pessoal
 * **Agendamento:** Spring Scheduling
 * **Build:** Maven
 
-## 🔌 Integrações Externas
+## Integrações Externas
 
 O sistema consome dados de duas fontes públicas principais:
 
@@ -29,7 +29,7 @@ O sistema consome dados de duas fontes públicas principais:
     * *Série 433:* IPCA (Inflação Mensal).
     * *Série 4389:* CDI Anual (Convertido matematicamente para taxa mensal equivalente via juros compostos).
 
-## ⚙️ Como Rodar
+## Como Rodar
 
 ### Pré-requisitos
 * Java 17 ou superior
