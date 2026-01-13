@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: gestao-veiculo
+
+  datasource:
+    url: ${BD_URL}
+    username: ${BD_USERNAME}
+    password: ${BD_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    open-in-view: false
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET}
+      expiration: ${JWT_EXPIRATION}
+
+fipe:
+  url: ${FIPE_API_URL:https://parallelum.com.br/fipe/api/v1}
+
+bcb:
+  url: ${BCB_API_URL:https://api.bcb.gov.br}
