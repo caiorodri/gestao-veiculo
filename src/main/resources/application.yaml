@@ -24,7 +24,12 @@ api:
       origins: ${CORS_ORIGINS:http://localhost:4200}
 
 fipe:
-  url: ${FIPE_API_URL:https://parallelum.com.br/fipe/api/v1}
+  brasil:
+    url: ${FIPE_API_BRASIL_URL:https://brasilapi.com.br/api/fipe}
+
+  parallelum:
+    url: ${FIPE_API_PARALLELUM_URL:https://parallelum.com.br/fipe/api/v1}
+
 
 bcb:
   url: ${BCB_API_URL:https://api.bcb.gov.br}
