@@ -55,7 +55,10 @@ CREATE TABLE veiculo (
     apelido VARCHAR(50),
     data_compra DATE NOT NULL,
     valor_compra DECIMAL(10, 2) NOT NULL,
-    vendido BOOLEAN DEFAULT FALSE,    
+    vendido BOOLEAN DEFAULT FALSE,
+    marca_codigo VARCHAR(50),
+    modelo_codigo VARCHAR(50),
+    ano_codigo VARCHAR(50),
     CONSTRAINT fk_veiculo_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id),
     CONSTRAINT fk_veiculo_modelo FOREIGN KEY (modelo_id) REFERENCES modelo(id)
     
