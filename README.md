@@ -85,6 +85,3 @@ mvn spring-boot:run
 
 
 * Logs Padronizados: Rastreabilidade clara de início, fim e ação de cada método nos Services e Controllers.
-
-### Melhorias Futuras
-* Carga Histórica Assíncrona: Implementação de busca retroativa de preços (via Event-Driven Architecture) para popular o gráfico histórico de veículos antigos em background logo após o cadastro.
