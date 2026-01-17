@@ -5,10 +5,20 @@ API desenvolvida em **Java com Spring Boot** para gerenciamento de frota pessoal
 ## Funcionalidades Principais
 
 * **Gestão de Veiculos:** CRUD completo de veículos vinculados a usuários.
-* **Integração FIPE:** Consulta em tempo real e sincronização de preços de mercado (API Parallelum).
+
+
+* **Carga Histórica Assíncrona:** Ao cadastrar um veículo, o sistema dispara uma thread em background (@Async) que busca automaticamente até 30 anos de histórico de preço na FIPE via BrasilAPI, sem impactar o tempo de resposta do cadastro.
+
+
 * **Inteligência Financeira:** Monitoramento mensal automático de indicadores econômicos (**IPCA** e **CDI**) integrados diretamente com o **Banco Central do Brasil (BACEN)**.
+
+
 * **Histórico de Preços:** Versionamento mensal do valor do veículo para geração de gráficos de depreciação.
+
+
 * **Agendamento Automático:** Rotinas (Schedulers) que rodam todo dia 1º do mês para atualizar a base de dados.
+
+
 * **Segurança:** Autenticação e Autorização via **Spring Security** e **JWT**.
 
 ## Stack Tecnológica
@@ -24,8 +34,9 @@ API desenvolvida em **Java com Spring Boot** para gerenciamento de frota pessoal
 
 O sistema consome dados de duas fontes públicas principais:
 
-1. **FIPE API:** Para dados de Marca, Modelo e Valor Atual dos veículos.
-2. **BCB (Banco Central) API:**
+1. **FIPE API:** Utilizada para a consulta de metadados (Listagem de Marcas, Modelos e Anos)
+2. **BrasilAPI:** Utilizada para busca de preços, detalhes profundos e carga histórica massiva.
+3. **BCB (Banco Central) API:**
     * *Série 433:* IPCA (Inflação Mensal).
     * *Série 4389:* CDI Anual (Convertido matematicamente para taxa mensal equivalente via juros compostos).
 
@@ -61,6 +72,9 @@ mvn spring-boot:run
 
 ### Destaques de Arquitetura
 
+* Processamento Assíncrono: Uso de Threads gerenciadas pelo Spring para tarefas pesadas (carga de histórico).
+
+
 * Tratamento de Erros: Exceções personalizadas.
 
 
@@ -68,6 +82,9 @@ mvn spring-boot:run
 
 
 * Matemática Financeira: Cálculo de taxas equivalentes (Anual -> Mensal) utilizando juros compostos para o CDI.
+
+
+* Logs Padronizados: Rastreabilidade clara de início, fim e ação de cada método nos Services e Controllers.
 
 ### Melhorias Futuras
 * Carga Histórica Assíncrona: Implementação de busca retroativa de preços (via Event-Driven Architecture) para popular o gráfico histórico de veículos antigos em background logo após o cadastro.
